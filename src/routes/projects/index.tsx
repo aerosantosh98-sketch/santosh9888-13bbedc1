@@ -88,7 +88,7 @@ function Projects() {
               key={p.slug}
               to="/projects/$slug"
               params={{ slug: p.slug }}
-              className="lift group relative overflow-hidden rounded-3xl border border-border bg-card"
+              className="lift group relative overflow-hidden soft-card"
             >
               <div className="relative h-40 overflow-hidden navy-gradient">
                 <div className="absolute inset-0 grid-blueprint opacity-60" />

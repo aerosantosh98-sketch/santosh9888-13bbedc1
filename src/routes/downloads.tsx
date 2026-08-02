@@ -42,7 +42,7 @@ function Downloads() {
             return (
               <article
                 key={d.label}
-                className="lift flex flex-col rounded-2xl border border-border bg-card p-7"
+                className="lift flex flex-col soft-card p-7"
               >
                 <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
                   <div className="min-w-0">

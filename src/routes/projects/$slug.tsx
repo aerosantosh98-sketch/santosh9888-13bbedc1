@@ -79,7 +79,7 @@ function ProjectDetail() {
               {p.drawings.map((d) => (
                 <div
                   key={d}
-                  className="lift relative overflow-hidden rounded-2xl border border-border bg-card p-5"
+                  className="lift relative overflow-hidden soft-card p-5"
                 >
                   <div className="absolute inset-0 grid-blueprint-fine opacity-50" aria-hidden />
                   <div className="relative">
@@ -131,7 +131,7 @@ function ProjectDetail() {
           </div>
 
           <aside className="space-y-6 lg:sticky lg:top-24 lg:h-fit">
-            <div className="rounded-2xl border border-border bg-card p-7">
+            <div className="soft-card p-7">
               <div className="flex items-center gap-2">
                 <Table2 className="size-5 text-accent" />
                 <h3 className="font-semibold">Key Calculations</h3>
@@ -148,7 +148,7 @@ function ProjectDetail() {
               </dl>
             </div>
 
-            <div className="rounded-2xl border border-border bg-card p-7">
+            <div className="soft-card p-7">
               <div className="flex items-center gap-2">
                 <FileSpreadsheet className="size-5 text-accent" />
                 <h3 className="font-semibold">Downloads</h3>

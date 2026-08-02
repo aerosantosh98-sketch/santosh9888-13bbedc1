@@ -64,7 +64,7 @@ function Resume() {
 
       <Section>
         <div className="grid gap-10 lg:grid-cols-[1fr_320px]">
-          <article className="rounded-3xl border border-border bg-card p-8 shadow-[var(--shadow-elegant)] sm:p-12">
+          <article className="soft-card p-8 shadow-[var(--shadow-elegant)] sm:p-12">
             <header className="border-b border-border pb-6">
               <h2 className="text-3xl font-bold">{profile.name}</h2>
               <p className="mt-2 text-sm text-muted-foreground">{profile.longTitle}</p>

@@ -38,7 +38,7 @@ function Experience() {
               <span className="absolute -left-[41px] grid size-8 place-items-center rounded-full border border-primary bg-background text-primary">
                 <Briefcase className="size-4" />
               </span>
-              <div className="lift rounded-3xl border border-border bg-card p-8">
+              <div className="lift soft-card p-8">
                 <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
                   {x.period}
                 </p>

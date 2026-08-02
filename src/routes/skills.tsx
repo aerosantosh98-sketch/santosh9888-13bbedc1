@@ -57,7 +57,7 @@ function Skills() {
             return (
               <article
                 key={g.title}
-                className="lift group relative overflow-hidden rounded-3xl border border-border bg-card p-7"
+                className="lift group relative overflow-hidden soft-card p-7"
               >
                 <div className="absolute inset-0 grid-blueprint-fine opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 <div className="relative">
