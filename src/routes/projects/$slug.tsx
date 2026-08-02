@@ -33,7 +33,7 @@ export const Route = createFileRoute("/projects/$slug")({
 });
 
 function ProjectDetail() {
-  const p = Route.useLoaderData();
+  const p = Route.useLoaderData() as Project;
 
   return (
     <>
