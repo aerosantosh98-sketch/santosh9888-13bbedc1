@@ -47,7 +47,7 @@ function Gallery() {
           {tiles.map((t) => (
             <figure
               key={t.title}
-              className={`lift group relative overflow-hidden rounded-2xl border border-border bg-card ${t.span}`}
+              className={`lift group relative overflow-hidden soft-card ${t.span}`}
             >
               {t.img ? (
                 <img

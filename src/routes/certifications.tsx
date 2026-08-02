@@ -77,7 +77,7 @@ function Certifications() {
           {filtered.map((c) => (
             <article
               key={c.name}
-              className="lift relative overflow-hidden rounded-2xl border border-border bg-card p-7"
+              className="lift relative overflow-hidden soft-card p-7"
             >
               <div className="absolute inset-0 grid-blueprint-fine opacity-40" aria-hidden />
               <div className="relative">

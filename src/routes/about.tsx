@@ -49,7 +49,7 @@ function About() {
             <SectionTitle kicker="Profile" title="Who I am" />
             <p className="text-base leading-relaxed text-muted-foreground">{profile.bio}</p>
 
-            <div className="mt-8 rounded-2xl border border-border bg-card p-7">
+            <div className="mt-8 soft-card p-7">
               <div className="flex items-center gap-3">
                 <Target className="size-5 text-accent" />
                 <h3 className="text-lg font-semibold">Career Objective</h3>
@@ -62,7 +62,7 @@ function About() {
 
       <Section className="pt-0">
         <div className="grid gap-6 lg:grid-cols-3">
-          <div className="lift rounded-2xl border border-border bg-card p-7">
+          <div className="lift soft-card p-7">
             <Trophy className="size-5 text-accent" />
             <h3 className="mt-4 text-lg font-semibold">Achievements</h3>
             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
@@ -75,7 +75,7 @@ function About() {
             </ul>
           </div>
 
-          <div className="lift rounded-2xl border border-border bg-card p-7">
+          <div className="lift soft-card p-7">
             <Heart className="size-5 text-accent" />
             <h3 className="mt-4 text-lg font-semibold">Interests</h3>
             <div className="mt-4 flex flex-wrap gap-2">
@@ -90,7 +90,7 @@ function About() {
             </div>
           </div>
 
-          <div className="lift rounded-2xl border border-border bg-card p-7">
+          <div className="lift soft-card p-7">
             <Languages className="size-5 text-accent" />
             <h3 className="mt-4 text-lg font-semibold">Languages</h3>
             <ul className="mt-4 space-y-3">

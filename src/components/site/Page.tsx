@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Reveal } from "./Motion";
 
 export function PageHeader({
   eyebrow,
@@ -12,19 +13,26 @@ export function PageHeader({
   children?: ReactNode;
 }) {
   return (
-    <section className="relative overflow-hidden border-b border-border hero-gradient">
-      <div className="absolute inset-0 grid-blueprint opacity-70" aria-hidden />
-      <div className="relative mx-auto max-w-7xl px-5 py-16 sm:py-20 lg:px-8">
-        <p className="animate-rise font-mono text-xs uppercase tracking-[0.28em] text-primary">
-          {eyebrow}
-        </p>
-        <h1 className="animate-rise mt-4 max-w-3xl text-4xl font-bold sm:text-5xl">{title}</h1>
+    <section className="relative overflow-hidden hero-gradient">
+      <div className="relative mx-auto max-w-7xl px-6 pb-14 pt-28 sm:pt-32 lg:px-10 lg:pb-20 lg:pt-40">
+        <Reveal>
+          <p className="eyebrow text-primary">{eyebrow}</p>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <h1 className="display-xl mt-6 max-w-4xl text-[clamp(2.5rem,7vw,5rem)]">{title}</h1>
+        </Reveal>
         {description && (
-          <p className="animate-rise mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
-            {description}
-          </p>
+          <Reveal delay={0.16}>
+            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+              {description}
+            </p>
+          </Reveal>
         )}
-        {children && <div className="mt-8">{children}</div>}
+        {children && (
+          <Reveal delay={0.24}>
+            <div className="mt-10">{children}</div>
+          </Reveal>
+        )}
       </div>
     </section>
   );
@@ -38,18 +46,17 @@ export function Section({
   className?: string;
 }) {
   return (
-    <section className={`mx-auto max-w-7xl px-5 py-16 lg:px-8 ${className}`}>{children}</section>
+    <section className={`mx-auto max-w-7xl px-6 py-20 sm:py-24 lg:px-10 ${className}`}>
+      {children}
+    </section>
   );
 }
 
 export function SectionTitle({ kicker, title }: { kicker?: string; title: string }) {
   return (
-    <div className="mb-10">
-      {kicker && (
-        <p className="font-mono text-xs uppercase tracking-[0.24em] text-accent">{kicker}</p>
-      )}
-      <h2 className="mt-2 text-3xl font-bold sm:text-4xl">{title}</h2>
-      <div className="mt-4 h-px w-24 bg-primary/60" />
-    </div>
+    <Reveal className="mb-12 max-w-3xl">
+      {kicker && <p className="eyebrow text-primary">{kicker}</p>}
+      <h2 className="mt-4 text-[clamp(1.9rem,4.2vw,3.25rem)] font-bold">{title}</h2>
+    </Reveal>
   );
 }

@@ -38,7 +38,7 @@ function Education() {
               <span className="absolute -left-[41px] grid size-8 place-items-center rounded-full border border-primary bg-background text-primary">
                 <GraduationCap className="size-4" />
               </span>
-              <div className="lift rounded-3xl border border-border bg-card p-8">
+              <div className="lift soft-card p-8">
                 <div className="grid gap-2 sm:grid-cols-[1fr_auto] sm:items-start">
                   <div className="min-w-0">
                     <h2 className="text-xl font-bold sm:text-2xl">{e.degree}</h2>
