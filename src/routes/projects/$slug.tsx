@@ -2,10 +2,10 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, Download, FileSpreadsheet, PenLine, Table2 } from "lucide-react";
 import { Section } from "@/components/site/Page";
 import { Button } from "@/components/ui/button";
-import { projects } from "@/lib/portfolio";
+import { projects, type Project } from "@/lib/portfolio";
 
 export const Route = createFileRoute("/projects/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): Project => {
     const project = projects.find((p) => p.slug === params.slug);
     if (!project) throw notFound();
     return project;
