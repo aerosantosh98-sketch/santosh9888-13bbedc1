@@ -12,8 +12,11 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as CertificationsRouteImport } from './routes/certifications'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DownloadsRouteImport } from './routes/downloads'
 import { Route as EducationRouteImport } from './routes/education'
 import { Route as ExperienceRouteImport } from './routes/experience'
+import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as ResumeRouteImport } from './routes/resume'
 import { Route as SkillsRouteImport } from './routes/skills'
 import { Route as ProjectsIndexRouteImport } from './routes/projects/index'
@@ -34,6 +37,16 @@ const CertificationsRoute = CertificationsRouteImport.update({
   path: '/certifications',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DownloadsRoute = DownloadsRouteImport.update({
+  id: '/downloads',
+  path: '/downloads',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EducationRoute = EducationRouteImport.update({
   id: '/education',
   path: '/education',
@@ -42,6 +55,11 @@ const EducationRoute = EducationRouteImport.update({
 const ExperienceRoute = ExperienceRouteImport.update({
   id: '/experience',
   path: '/experience',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ResumeRoute = ResumeRouteImport.update({
@@ -69,8 +87,11 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/certifications': typeof CertificationsRoute
+  '/contact': typeof ContactRoute
+  '/downloads': typeof DownloadsRoute
   '/education': typeof EducationRoute
   '/experience': typeof ExperienceRoute
+  '/gallery': typeof GalleryRoute
   '/resume': typeof ResumeRoute
   '/skills': typeof SkillsRoute
   '/projects/$slug': typeof ProjectsSlugRoute
@@ -80,8 +101,11 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/certifications': typeof CertificationsRoute
+  '/contact': typeof ContactRoute
+  '/downloads': typeof DownloadsRoute
   '/education': typeof EducationRoute
   '/experience': typeof ExperienceRoute
+  '/gallery': typeof GalleryRoute
   '/resume': typeof ResumeRoute
   '/skills': typeof SkillsRoute
   '/projects/$slug': typeof ProjectsSlugRoute
@@ -92,8 +116,11 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/certifications': typeof CertificationsRoute
+  '/contact': typeof ContactRoute
+  '/downloads': typeof DownloadsRoute
   '/education': typeof EducationRoute
   '/experience': typeof ExperienceRoute
+  '/gallery': typeof GalleryRoute
   '/resume': typeof ResumeRoute
   '/skills': typeof SkillsRoute
   '/projects/$slug': typeof ProjectsSlugRoute
@@ -105,8 +132,11 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/certifications'
+    | '/contact'
+    | '/downloads'
     | '/education'
     | '/experience'
+    | '/gallery'
     | '/resume'
     | '/skills'
     | '/projects/$slug'
@@ -116,8 +146,11 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/certifications'
+    | '/contact'
+    | '/downloads'
     | '/education'
     | '/experience'
+    | '/gallery'
     | '/resume'
     | '/skills'
     | '/projects/$slug'
@@ -127,8 +160,11 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/certifications'
+    | '/contact'
+    | '/downloads'
     | '/education'
     | '/experience'
+    | '/gallery'
     | '/resume'
     | '/skills'
     | '/projects/$slug'
@@ -139,8 +175,11 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   CertificationsRoute: typeof CertificationsRoute
+  ContactRoute: typeof ContactRoute
+  DownloadsRoute: typeof DownloadsRoute
   EducationRoute: typeof EducationRoute
   ExperienceRoute: typeof ExperienceRoute
+  GalleryRoute: typeof GalleryRoute
   ResumeRoute: typeof ResumeRoute
   SkillsRoute: typeof SkillsRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
@@ -170,6 +209,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CertificationsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/downloads': {
+      id: '/downloads'
+      path: '/downloads'
+      fullPath: '/downloads'
+      preLoaderRoute: typeof DownloadsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/education': {
       id: '/education'
       path: '/education'
@@ -182,6 +235,13 @@ declare module '@tanstack/react-router' {
       path: '/experience'
       fullPath: '/experience'
       preLoaderRoute: typeof ExperienceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/resume': {
@@ -219,8 +279,11 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   CertificationsRoute: CertificationsRoute,
+  ContactRoute: ContactRoute,
+  DownloadsRoute: DownloadsRoute,
   EducationRoute: EducationRoute,
   ExperienceRoute: ExperienceRoute,
+  GalleryRoute: GalleryRoute,
   ResumeRoute: ResumeRoute,
   SkillsRoute: SkillsRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
