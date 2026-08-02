@@ -1,27 +1,35 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, ArrowUpRight } from "lucide-react";
 import { navItems, profile } from "@/lib/portfolio";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-24 border-t border-border navy-gradient text-navy-foreground">
-      <div className="grid-blueprint">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 lg:grid-cols-3 lg:px-8">
+    <footer className="mt-8 border-t border-border bg-surface">
+      <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+        <div className="grid gap-14 lg:grid-cols-[1.4fr_0.8fr_1fr]">
           <div>
-            <p className="font-display text-2xl font-bold">{profile.name}</p>
-            <p className="mt-3 max-w-sm text-sm text-navy-foreground/70">{profile.longTitle}</p>
+            <p className="display-xl text-[clamp(2rem,4vw,3rem)]">
+              Santosh <span className="text-primary">Yadav</span>
+            </p>
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground">
+              {profile.longTitle}
+            </p>
+            <Link
+              to="/contact"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-transform duration-300 hover:scale-[1.04]"
+            >
+              Start a conversation <ArrowUpRight className="size-4" />
+            </Link>
           </div>
 
           <div>
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-navy-foreground/60">
-              Navigate
-            </p>
-            <div className="mt-4 grid grid-cols-2 gap-y-2 text-sm">
+            <p className="eyebrow">Navigate</p>
+            <div className="mt-5 grid grid-cols-2 gap-y-2.5 text-sm">
               {navItems.map((item) => (
                 <Link
                   key={item.to}
                   to={item.to}
-                  className="text-navy-foreground/75 transition-colors hover:text-accent"
+                  className="text-muted-foreground transition-colors hover:text-primary"
                 >
                   {item.label}
                 </Link>
@@ -30,46 +38,42 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-navy-foreground/60">
-              Contact
-            </p>
-            <ul className="mt-4 space-y-3 text-sm text-navy-foreground/80">
-              <li className="flex items-center gap-2">
-                <Mail className="size-4 text-accent" />
-                <a href={`mailto:${profile.email}`} className="hover:text-accent">
+            <p className="eyebrow">Contact</p>
+            <ul className="mt-5 space-y-3.5 text-sm text-muted-foreground">
+              <li className="flex items-center gap-3">
+                <Mail className="size-4 text-primary" />
+                <a href={`mailto:${profile.email}`} className="hover:text-foreground">
                   {profile.email}
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <Phone className="size-4 text-accent" />
-                <a href={`tel:${profile.phone.replace(/\s/g, "")}`} className="hover:text-accent">
+              <li className="flex items-center gap-3">
+                <Phone className="size-4 text-primary" />
+                <a href={`tel:${profile.phone.replace(/\s/g, "")}`} className="hover:text-foreground">
                   {profile.phone}
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <Linkedin className="size-4 text-accent" />
+              <li className="flex items-center gap-3">
+                <Linkedin className="size-4 text-primary" />
                 <a
                   href={profile.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-accent"
+                  className="hover:text-foreground"
                 >
                   linkedin.com/in/santosh-yadav-k
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <MapPin className="size-4 text-accent" />
+              <li className="flex items-center gap-3">
+                <MapPin className="size-4 text-primary" />
                 {profile.location}
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-navy-foreground/10">
-          <div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-5 font-mono text-[11px] uppercase tracking-[0.16em] text-navy-foreground/50 sm:flex-row sm:items-center sm:justify-between lg:px-8">
-            <span>© {new Date().getFullYear()} Santosh Yadav</span>
-            <span>Designed & Engineered with precision</span>
-          </div>
+        <div className="mt-16 flex flex-col gap-2 border-t border-border pt-8 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+          <span>© {new Date().getFullYear()} Santosh Yadav</span>
+          <span>Civil Engineering · Structures · Estimation · GIS</span>
         </div>
       </div>
     </footer>
