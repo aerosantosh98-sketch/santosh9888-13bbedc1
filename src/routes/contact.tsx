@@ -28,6 +28,12 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
 });
 
+const EMAILJS = {
+  serviceId: "service_o6lmj99",
+  templateId: "template_lho8epd",
+  publicKey: "3OSQf2RYlVKx-aLr5",
+};
+
 const details = [
   { icon: Mail, label: "Email", value: profile.email, href: `mailto:${profile.email}` },
   { icon: Phone, label: "Phone", value: profile.phone, href: `tel:${profile.phone.replace(/\s/g, "")}` },
@@ -78,17 +84,29 @@ function Contact() {
           </div>
 
           <form
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
-              setSending(true);
               const form = e.currentTarget;
-              setTimeout(() => {
-                setSending(false);
+              setSending(true);
+              try {
+                const emailjs = (await import("@emailjs/browser")).default;
+                await emailjs.sendForm(
+                  EMAILJS.serviceId,
+                  EMAILJS.templateId,
+                  form,
+                  { publicKey: EMAILJS.publicKey },
+                );
                 form.reset();
-                toast.success("Message ready", {
-                  description: `Thanks for reaching out — please also email ${profile.email}.`,
+                toast.success("Message sent", {
+                  description: "Thanks for reaching out — I'll reply shortly.",
                 });
-              }, 600);
+              } catch {
+                toast.error("Message could not be sent", {
+                  description: `Please email me directly at ${profile.email}.`,
+                });
+              } finally {
+                setSending(false);
+              }
             }}
             className="relative overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-[var(--shadow-elegant)] sm:p-10"
           >

@@ -328,3 +328,59 @@ body::before {
     radial-gradient(50vw 40vw at 85% 72%, oklch(0.27 0.005 260 / 0.5), transparent 70%),
     radial-gradient(60vw 45vw at 45% 95%, oklch(0.23 0.004 260 / 0.5), transparent 72%);
 }
+
+/* ── Premium dark-grey theme (applies to both roots) ───────────────── */
+:root,
+.dark {
+  --background: oklch(0.256 0 0); /* #1F1F1F */
+  --foreground: oklch(0.964 0 0); /* #F5F5F5 */
+  --surface: oklch(0.302 0 0); /* #2A2A2A */
+  --card: oklch(0.327 0 0); /* #303030 */
+  --card-foreground: oklch(0.964 0 0);
+  --popover: oklch(0.302 0 0);
+  --popover-foreground: oklch(0.964 0 0);
+  --primary: oklch(0.64 0.185 262);
+  --primary-foreground: oklch(0.16 0 0);
+  --navy: oklch(0.302 0 0);
+  --navy-foreground: oklch(0.964 0 0);
+  --secondary: oklch(0.327 0 0);
+  --secondary-foreground: oklch(0.964 0 0);
+  --muted: oklch(0.327 0 0);
+  --muted-foreground: oklch(0.775 0 0); /* #B5B5B5 */
+  --accent: oklch(0.64 0.185 262);
+  --accent-foreground: oklch(0.16 0 0);
+  --border: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.64 0.185 262);
+  --blueprint: oklch(0.64 0.185 262 / 0.08);
+  --sidebar: oklch(0.302 0 0);
+  --sidebar-foreground: oklch(0.964 0 0);
+  --sidebar-primary: oklch(0.64 0.185 262);
+  --sidebar-primary-foreground: oklch(0.16 0 0);
+  --sidebar-accent: oklch(0.327 0 0);
+  --sidebar-accent-foreground: oklch(0.964 0 0);
+  --sidebar-border: oklch(1 0 0 / 8%);
+  --sidebar-ring: oklch(0.64 0.185 262);
+
+  --shadow-soft: 0 1px 2px oklch(0 0 0 / 0.35), 0 14px 34px -18px oklch(0 0 0 / 0.65);
+  --shadow-elegant: 0 2px 6px oklch(0 0 0 / 0.35), 0 34px 74px -34px oklch(0 0 0 / 0.8);
+  --shadow-glow: 0 24px 60px -28px oklch(0.64 0.185 262 / 0.4);
+  --gradient-hero: radial-gradient(70% 60% at 78% 22%, oklch(0.36 0 0 / 0.85), transparent 72%),
+    radial-gradient(55% 55% at 8% 4%, oklch(0.32 0 0 / 0.8), transparent 70%);
+  --gradient-navy: linear-gradient(135deg, oklch(0.256 0 0), oklch(0.34 0 0));
+}
+
+body::before,
+.dark body::before {
+  background-image:
+    radial-gradient(45vw 40vw at 12% 6%, oklch(0.36 0 0 / 0.6), transparent 65%),
+    radial-gradient(50vw 45vw at 88% 22%, oklch(0.33 0 0 / 0.6), transparent 68%),
+    radial-gradient(55vw 45vw at 20% 48%, oklch(0.31 0 0 / 0.6), transparent 70%),
+    radial-gradient(50vw 40vw at 85% 72%, oklch(0.33 0 0 / 0.55), transparent 70%),
+    radial-gradient(60vw 45vw at 45% 95%, oklch(0.30 0 0 / 0.55), transparent 72%);
+}
+
+/* Route changes must not animate the scroll position (caused nav flicker) */
+html {
+  scroll-behavior: auto;
+}
