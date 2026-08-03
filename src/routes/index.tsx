@@ -9,6 +9,11 @@ import {
   Building2,
   Globe2,
   Calculator,
+  HardHat,
+  Leaf,
+  Recycle,
+  ClipboardList,
+  Users,
 } from "lucide-react";
 import portrait from "@/assets/profile-pic.jpg.asset.json";
 import { Section, SectionTitle } from "@/components/site/Page";
@@ -36,24 +41,24 @@ export const Route = createFileRoute("/")({
 });
 
 const highlights = [
+  { icon: HardHat, label: "Site Engineering", value: "Execution · Supervision" },
+  { icon: Leaf, label: "Sustainable Engineering", value: "Low-carbon design" },
+  { icon: Recycle, label: "Green Technology", value: "Efficient materials" },
+  { icon: Building2, label: "Structural Engineering", value: "STAAD.Pro · ETABS" },
   { icon: Calculator, label: "Quantity Surveying", value: "BOQ · Rate Analysis" },
-  { icon: Building2, label: "Structural Design", value: "STAAD.Pro · ETABS" },
+  { icon: ClipboardList, label: "Construction Management", value: "Planning · Cost control" },
   { icon: Globe2, label: "GIS & Remote Sensing", value: "ArcGIS · DEM · Contours" },
   { icon: Ruler, label: "Surveying", value: "Total Station · GPS" },
+  { icon: Users, label: "Site Management", value: "Quality · Safety · Teams" },
 ];
 
-const stats = [
-  { value: 9.26, decimals: 2, suffix: "", label: "CGPA at NMIT Bengaluru" },
-  { value: projects.length, decimals: 0, suffix: "+", label: "Documented case studies" },
-  { value: 98.75, decimals: 2, suffix: "%", label: "Secondary school result" },
-];
 
 function Home() {
   return (
     <>
       {/* HERO */}
       <section className="relative overflow-hidden hero-gradient">
-        <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 pb-20 pt-32 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:px-10 lg:pb-28 lg:pt-44">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 pb-14 pt-28 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:px-10 lg:pb-20 lg:pt-36">
           <div>
             <Reveal>
               <span className="inline-flex items-center gap-2.5 rounded-full bg-muted px-4 py-2 text-xs font-medium text-muted-foreground">
@@ -134,44 +139,31 @@ function Home() {
         </div>
       </section>
 
-      {/* STATS */}
-      <Section className="py-16 sm:py-20">
-        <div className="grid gap-10 sm:grid-cols-3">
-          {stats.map((s, i) => (
-            <Reveal key={s.label} delay={i * 0.08}>
-              <p className="display-xl text-[clamp(2.6rem,5vw,4rem)] text-primary">
-                <Counter value={s.value} decimals={s.decimals} suffix={s.suffix} />
-              </p>
-              <p className="mt-3 text-sm text-muted-foreground">{s.label}</p>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-
       {/* CAPABILITIES */}
-      <Section className="pt-0">
+      <Section className="pt-2">
         <SectionTitle kicker="Disciplines" title="What I engineer." />
-        <div className="grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {highlights.map((h, i) => (
-            <Reveal key={h.label} delay={i * 0.07}>
-              <h.icon className="size-6 text-primary" strokeWidth={1.5} />
-              <p className="mt-6 font-display text-xl font-semibold">{h.label}</p>
-              <p className="mt-2 text-sm text-muted-foreground">{h.value}</p>
+            <Reveal key={h.label} delay={Math.min(i * 0.05, 0.3)} className="h-full">
+              <div className="lift soft-card flex h-full flex-col p-6">
+                <h.icon className="size-6 text-primary" strokeWidth={1.5} />
+                <p className="mt-5 font-display text-lg font-semibold leading-snug">{h.label}</p>
+                <p className="mt-2 text-sm text-muted-foreground">{h.value}</p>
+              </div>
             </Reveal>
           ))}
         </div>
       </Section>
 
-      {/* FEATURED PROJECTS */}
       <Section className="pt-0">
         <SectionTitle kicker="Selected work" title="Case studies, documented end to end." />
-        <div className="space-y-4">
-          {projects.slice(0, 4).map((p, i) => (
-            <Reveal key={p.slug} delay={i * 0.05}>
+        <div className="divide-y divide-border">
+          {projects.slice(0, 6).map((p, i) => (
+            <Reveal key={p.slug} delay={Math.min(i * 0.05, 0.25)}>
               <Link
                 to="/projects/$slug"
                 params={{ slug: p.slug }}
-                className="group grid items-center gap-6 rounded-3xl px-2 py-8 transition-colors duration-500 hover:bg-surface sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:px-8"
+                className="group grid items-center gap-5 rounded-3xl px-2 py-6 transition-colors duration-500 hover:bg-surface sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:px-6"
               >
                 <span className="font-display text-sm text-muted-foreground">
                   {String(i + 1).padStart(2, "0")}
@@ -180,13 +172,13 @@ function Home() {
                   <p className="eyebrow text-primary">
                     {p.category} · {p.year}
                   </p>
-                  <h3 className="mt-3 text-2xl font-semibold transition-transform duration-500 group-hover:translate-x-1.5 sm:text-3xl">
+                  <h3 className="mt-2 text-2xl font-semibold transition-transform duration-500 group-hover:translate-x-1.5 sm:text-[1.75rem]">
                     {p.title}
                   </h3>
-                  <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+                  <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
                     {p.summary}
                   </p>
-                  <div className="mt-5 flex flex-wrap gap-2">
+                  <div className="mt-4 flex flex-wrap gap-2">
                     {p.tools.slice(0, 4).map((t) => (
                       <span
                         key={t}
@@ -207,12 +199,13 @@ function Home() {
         <Reveal delay={0.1}>
           <Link
             to="/projects"
-            className="mt-10 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+            className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
           >
             All projects <ArrowRight className="size-4" />
           </Link>
         </Reveal>
       </Section>
+
 
       {/* TOOLBOX */}
       <Section className="pt-0">
