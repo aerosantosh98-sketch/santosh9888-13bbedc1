@@ -157,13 +157,13 @@ function Home() {
 
       <Section className="pt-0">
         <SectionTitle kicker="Selected work" title="Case studies, documented end to end." />
-        <div className="space-y-4">
-          {projects.slice(0, 4).map((p, i) => (
-            <Reveal key={p.slug} delay={i * 0.05}>
+        <div className="divide-y divide-border">
+          {projects.slice(0, 6).map((p, i) => (
+            <Reveal key={p.slug} delay={Math.min(i * 0.05, 0.25)}>
               <Link
                 to="/projects/$slug"
                 params={{ slug: p.slug }}
-                className="group grid items-center gap-6 rounded-3xl px-2 py-8 transition-colors duration-500 hover:bg-surface sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:px-8"
+                className="group grid items-center gap-5 rounded-3xl px-2 py-6 transition-colors duration-500 hover:bg-surface sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:px-6"
               >
                 <span className="font-display text-sm text-muted-foreground">
                   {String(i + 1).padStart(2, "0")}
@@ -172,13 +172,13 @@ function Home() {
                   <p className="eyebrow text-primary">
                     {p.category} · {p.year}
                   </p>
-                  <h3 className="mt-3 text-2xl font-semibold transition-transform duration-500 group-hover:translate-x-1.5 sm:text-3xl">
+                  <h3 className="mt-2 text-2xl font-semibold transition-transform duration-500 group-hover:translate-x-1.5 sm:text-[1.75rem]">
                     {p.title}
                   </h3>
-                  <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+                  <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
                     {p.summary}
                   </p>
-                  <div className="mt-5 flex flex-wrap gap-2">
+                  <div className="mt-4 flex flex-wrap gap-2">
                     {p.tools.slice(0, 4).map((t) => (
                       <span
                         key={t}
@@ -199,12 +199,13 @@ function Home() {
         <Reveal delay={0.1}>
           <Link
             to="/projects"
-            className="mt-10 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+            className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
           >
             All projects <ArrowRight className="size-4" />
           </Link>
         </Reveal>
       </Section>
+
 
       {/* TOOLBOX */}
       <Section className="pt-0">
