@@ -46,7 +46,7 @@ export function Section({
   className?: string;
 }) {
   return (
-    <section className={`mx-auto max-w-7xl px-6 py-20 sm:py-24 lg:px-10 ${className}`}>
+    <section className={`mx-auto max-w-7xl px-6 py-14 sm:py-16 lg:px-10 ${className}`}>
       {children}
     </section>
   );
@@ -54,9 +54,9 @@ export function Section({
 
 export function SectionTitle({ kicker, title }: { kicker?: string; title: string }) {
   return (
-    <Reveal className="mb-12 max-w-3xl">
+    <Reveal className="mb-9 max-w-3xl">
       {kicker && <p className="eyebrow text-primary">{kicker}</p>}
-      <h2 className="mt-4 text-[clamp(1.9rem,4.2vw,3.25rem)] font-bold">{title}</h2>
+      <h2 className="mt-3 text-[clamp(1.8rem,4vw,3rem)] font-bold">{title}</h2>
     </Reveal>
   );
 }
