@@ -58,7 +58,7 @@ function Home() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden hero-gradient">
-        <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 pb-20 pt-32 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:px-10 lg:pb-28 lg:pt-44">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 pb-14 pt-28 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:px-10 lg:pb-20 lg:pt-36">
           <div>
             <Reveal>
               <span className="inline-flex items-center gap-2.5 rounded-full bg-muted px-4 py-2 text-xs font-medium text-muted-foreground">
