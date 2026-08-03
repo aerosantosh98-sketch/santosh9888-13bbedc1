@@ -36,17 +36,17 @@ export const Route = createFileRoute("/")({
 });
 
 const highlights = [
+  { icon: HardHat, label: "Site Engineering", value: "Execution · Supervision" },
+  { icon: Leaf, label: "Sustainable Engineering", value: "Low-carbon design" },
+  { icon: Recycle, label: "Green Technology", value: "Efficient materials" },
+  { icon: Building2, label: "Structural Engineering", value: "STAAD.Pro · ETABS" },
   { icon: Calculator, label: "Quantity Surveying", value: "BOQ · Rate Analysis" },
-  { icon: Building2, label: "Structural Design", value: "STAAD.Pro · ETABS" },
+  { icon: ClipboardList, label: "Construction Management", value: "Planning · Cost control" },
   { icon: Globe2, label: "GIS & Remote Sensing", value: "ArcGIS · DEM · Contours" },
   { icon: Ruler, label: "Surveying", value: "Total Station · GPS" },
+  { icon: Users, label: "Site Management", value: "Quality · Safety · Teams" },
 ];
 
-const stats = [
-  { value: 9.26, decimals: 2, suffix: "", label: "CGPA at NMIT Bengaluru" },
-  { value: projects.length, decimals: 0, suffix: "+", label: "Documented case studies" },
-  { value: 98.75, decimals: 2, suffix: "%", label: "Secondary school result" },
-];
 
 function Home() {
   return (
