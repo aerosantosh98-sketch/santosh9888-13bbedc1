@@ -9,6 +9,11 @@ import {
   Building2,
   Globe2,
   Calculator,
+  HardHat,
+  Leaf,
+  Recycle,
+  ClipboardList,
+  Users,
 } from "lucide-react";
 import portrait from "@/assets/profile-pic.jpg.asset.json";
 import { Section, SectionTitle } from "@/components/site/Page";
