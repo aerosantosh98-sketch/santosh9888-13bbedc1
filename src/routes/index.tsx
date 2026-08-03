@@ -139,35 +139,22 @@ function Home() {
         </div>
       </section>
 
-      {/* STATS */}
-      <Section className="py-16 sm:py-20">
-        <div className="grid gap-10 sm:grid-cols-3">
-          {stats.map((s, i) => (
-            <Reveal key={s.label} delay={i * 0.08}>
-              <p className="display-xl text-[clamp(2.6rem,5vw,4rem)] text-primary">
-                <Counter value={s.value} decimals={s.decimals} suffix={s.suffix} />
-              </p>
-              <p className="mt-3 text-sm text-muted-foreground">{s.label}</p>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-
       {/* CAPABILITIES */}
-      <Section className="pt-0">
+      <Section className="pt-2">
         <SectionTitle kicker="Disciplines" title="What I engineer." />
-        <div className="grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {highlights.map((h, i) => (
-            <Reveal key={h.label} delay={i * 0.07}>
-              <h.icon className="size-6 text-primary" strokeWidth={1.5} />
-              <p className="mt-6 font-display text-xl font-semibold">{h.label}</p>
-              <p className="mt-2 text-sm text-muted-foreground">{h.value}</p>
+            <Reveal key={h.label} delay={Math.min(i * 0.05, 0.3)} className="h-full">
+              <div className="lift soft-card flex h-full flex-col p-6">
+                <h.icon className="size-6 text-primary" strokeWidth={1.5} />
+                <p className="mt-5 font-display text-lg font-semibold leading-snug">{h.label}</p>
+                <p className="mt-2 text-sm text-muted-foreground">{h.value}</p>
+              </div>
             </Reveal>
           ))}
         </div>
       </Section>
 
-      {/* FEATURED PROJECTS */}
       <Section className="pt-0">
         <SectionTitle kicker="Selected work" title="Case studies, documented end to end." />
         <div className="space-y-4">
