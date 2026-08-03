@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Target, Languages, Heart, Trophy } from "lucide-react";
 import { PageHeader, Section, SectionTitle } from "@/components/site/Page";
 import { achievements, interests, languages, profile } from "@/lib/portfolio";
-import portrait from "@/assets/portrait.jpg";
+import portrait from "@/assets/profile-pic.jpg.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -35,15 +35,16 @@ function About() {
       <Section>
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="relative">
-            <div className="absolute -inset-3 rounded-3xl grid-blueprint-fine opacity-70" aria-hidden />
-            <img
-              src={portrait}
-              alt="Portrait of Santosh Yadav"
-              loading="lazy"
-              width={1024}
-              height={1280}
-              className="relative rounded-3xl border border-border object-cover shadow-[var(--shadow-elegant)]"
-            />
+            <div className="overflow-hidden rounded-[2.5rem] shadow-[var(--shadow-elegant)]">
+              <img
+                src={portrait.url}
+                alt="Portrait of Santosh Yadav"
+                loading="lazy"
+                width={800}
+                height={800}
+                className="h-full w-full object-cover"
+              />
+            </div>
           </div>
           <div>
             <SectionTitle kicker="Profile" title="Who I am" />

@@ -14,7 +14,7 @@ export function PageHeader({
 }) {
   return (
     <section className="relative overflow-hidden hero-gradient">
-      <div className="relative mx-auto max-w-7xl px-6 pb-14 pt-28 sm:pt-32 lg:px-10 lg:pb-20 lg:pt-40">
+      <div className="relative mx-auto max-w-7xl px-6 pb-10 pt-24 sm:pt-28 lg:px-10 lg:pb-14 lg:pt-32">
         <Reveal>
           <p className="eyebrow text-primary">{eyebrow}</p>
         </Reveal>
