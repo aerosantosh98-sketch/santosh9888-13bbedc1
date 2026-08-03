@@ -28,6 +28,12 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
 });
 
+const EMAILJS = {
+  serviceId: "service_o6lmj99",
+  templateId: "template_lho8epd",
+  publicKey: "3OSQf2RYlVKx-aLr5",
+};
+
 const details = [
   { icon: Mail, label: "Email", value: profile.email, href: `mailto:${profile.email}` },
   { icon: Phone, label: "Phone", value: profile.phone, href: `tel:${profile.phone.replace(/\s/g, "")}` },
