@@ -68,6 +68,7 @@ export function SiteHeader() {
             <Link
               key={item.to}
               to={item.to}
+              preload="intent"
               activeOptions={{ exact: item.to === "/" }}
               className={cn(
                 "relative rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground",
@@ -83,6 +84,7 @@ export function SiteHeader() {
           <ThemeToggle />
           <Link
             to="/contact"
+            preload="intent"
             className="hidden rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-transform duration-300 hover:scale-[1.04] sm:inline-flex"
           >
             Let's talk
@@ -104,6 +106,7 @@ export function SiteHeader() {
               <Link
                 key={item.to}
                 to={item.to}
+                preload="intent"
                 activeOptions={{ exact: item.to === "/" }}
                 className="rounded-2xl px-4 py-2.5 text-sm text-muted-foreground transition-colors hover:bg-muted data-[status=active]:bg-primary/10 data-[status=active]:text-primary"
               >
