@@ -30,7 +30,7 @@ export const Route = createFileRoute("/contact")({
 
 const EMAILJS = {
   serviceId: "service_o6lmj99",
-  templateId: "template_lho8epd",
+  templateId: "template_5ioy3hm",
   publicKey: "3OSQf2RYlVKx-aLr5",
 };
 
