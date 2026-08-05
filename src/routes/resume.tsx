@@ -52,10 +52,15 @@ function Resume() {
         description="A structured summary of academic record, site experience, technical tooling and certifications."
       >
         <div className="flex flex-wrap gap-3">
+          <Button asChild variant="outline">
+            <a href={resumeFile} target="_blank" rel="noreferrer">
+              <Eye /> View Resume
+            </a>
+          </Button>
           <Button asChild>
-            <Link to="/downloads">
-              <Download /> Download PDF
-            </Link>
+            <a href={resumeFile} download>
+              <Download /> Download Resume
+            </a>
           </Button>
           <Button variant="outline" onClick={() => window.print()}>
             <Printer /> Print
