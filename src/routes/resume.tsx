@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Download, Printer, FileText } from "lucide-react";
+import { Download, Printer, FileText, Eye } from "lucide-react";
 import { PageHeader, Section } from "@/components/site/Page";
 import { Button } from "@/components/ui/button";
 import {
@@ -8,6 +8,7 @@ import {
   experience,
   profile,
   projects,
+  resumeFile,
   skillGroups,
 } from "@/lib/portfolio";
 
@@ -51,10 +52,15 @@ function Resume() {
         description="A structured summary of academic record, site experience, technical tooling and certifications."
       >
         <div className="flex flex-wrap gap-3">
+          <Button asChild variant="outline">
+            <a href={resumeFile} target="_blank" rel="noreferrer">
+              <Eye /> View Resume
+            </a>
+          </Button>
           <Button asChild>
-            <Link to="/downloads">
-              <Download /> Download PDF
-            </Link>
+            <a href={resumeFile} download>
+              <Download /> Download Resume
+            </a>
           </Button>
           <Button variant="outline" onClick={() => window.print()}>
             <Printer /> Print
@@ -153,23 +159,29 @@ function Resume() {
 
           <aside className="h-fit rounded-3xl border border-border bg-muted/40 p-7 lg:sticky lg:top-24">
             <FileText className="size-6 text-primary" />
-            <h3 className="mt-4 text-lg font-semibold">Embedded PDF</h3>
+            <h3 className="mt-4 text-lg font-semibold">Resume PDF</h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              Place the resume PDF at <code className="font-mono text-xs">/resume.pdf</code> in the
-              public folder and it will render in the viewer below.
+              Served locally from the project — no external links.
             </p>
             <div className="mt-5 aspect-[3/4] overflow-hidden rounded-xl border border-border bg-background">
-              <object data="/resume.pdf" type="application/pdf" className="h-full w-full">
+              <object data={resumeFile} type="application/pdf" className="h-full w-full">
                 <div className="grid h-full place-items-center p-6 text-center text-sm text-muted-foreground">
-                  PDF preview unavailable — upload resume.pdf to enable the inline viewer.
+                  PDF preview unavailable in this browser — use View or Download.
                 </div>
               </object>
             </div>
-            <Button asChild className="mt-5 w-full">
-              <a href="/resume.pdf" download>
-                <Download /> Download Resume
-              </a>
-            </Button>
+            <div className="mt-5 grid gap-3">
+              <Button asChild variant="outline">
+                <a href={resumeFile} target="_blank" rel="noreferrer">
+                  <Eye /> View Resume
+                </a>
+              </Button>
+              <Button asChild>
+                <a href={resumeFile} download>
+                  <Download /> Download Resume
+                </a>
+              </Button>
+            </div>
           </aside>
         </div>
       </Section>

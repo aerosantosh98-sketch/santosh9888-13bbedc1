@@ -56,15 +56,28 @@ function Downloads() {
                     {d.type}
                   </span>
                 </div>
-                <div className="mt-6 flex items-center justify-between gap-3 border-t border-border pt-5">
+                <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-border pt-5">
                   <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
                     {d.size}
                   </span>
-                  <Button asChild size="sm" variant="outline">
-                    <a href="/resume.pdf" download>
-                      <Download /> Download
-                    </a>
-                  </Button>
+                  {d.href ? (
+                    <div className="flex gap-2">
+                      <Button asChild size="sm" variant="ghost">
+                        <a href={d.href} target="_blank" rel="noreferrer">
+                          View
+                        </a>
+                      </Button>
+                      <Button asChild size="sm" variant="outline">
+                        <a href={d.href} download>
+                          <Download /> Download
+                        </a>
+                      </Button>
+                    </div>
+                  ) : (
+                    <Button size="sm" variant="outline" disabled>
+                      <Download /> Coming soon
+                    </Button>
+                  )}
                 </div>
               </article>
             );

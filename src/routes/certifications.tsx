@@ -1,9 +1,17 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Award, Search, BadgeCheck } from "lucide-react";
+import { Award, Search, BadgeCheck, Eye, Download } from "lucide-react";
 import { PageHeader, Section } from "@/components/site/Page";
 import { Input } from "@/components/ui/input";
-import { certifications } from "@/lib/portfolio";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
+import { certifications, type Certification } from "@/lib/portfolio";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/certifications")({
@@ -28,6 +36,7 @@ export const Route = createFileRoute("/certifications")({
 function Certifications() {
   const [query, setQuery] = useState("");
   const [cat, setCat] = useState("All");
+  const [preview, setPreview] = useState<Certification | null>(null);
   const cats = ["All", ...Array.from(new Set(certifications.map((c) => c.category)))];
 
   const filtered = certifications.filter(
@@ -77,10 +86,10 @@ function Certifications() {
           {filtered.map((c) => (
             <article
               key={c.name}
-              className="lift relative overflow-hidden soft-card p-7"
+              className="lift relative flex flex-col overflow-hidden soft-card p-7"
             >
               <div className="absolute inset-0 grid-blueprint-fine opacity-40" aria-hidden />
-              <div className="relative">
+              <div className="relative flex flex-1 flex-col">
                 <div className="flex items-center justify-between">
                   <Award className="size-6 text-primary" />
                   <BadgeCheck className="size-5 text-accent" />
@@ -90,6 +99,25 @@ function Certifications() {
                 <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
                   {c.category}
                 </p>
+
+                <div className="mt-6 flex flex-wrap gap-2 border-t border-border pt-5">
+                  {c.file ? (
+                    <>
+                      <Button size="sm" variant="outline" onClick={() => setPreview(c)}>
+                        <Eye /> View Certificate
+                      </Button>
+                      <Button asChild size="sm">
+                        <a href={c.file} download>
+                          <Download /> Download
+                        </a>
+                      </Button>
+                    </>
+                  ) : (
+                    <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
+                      Certificate file coming soon
+                    </span>
+                  )}
+                </div>
               </div>
             </article>
           ))}
@@ -99,6 +127,40 @@ function Certifications() {
           <p className="mt-16 text-center text-muted-foreground">No certifications found.</p>
         )}
       </Section>
+
+      <Dialog open={!!preview} onOpenChange={(open) => !open && setPreview(null)}>
+        <DialogContent className="max-w-4xl">
+          <DialogHeader>
+            <DialogTitle className="pr-8 text-left text-lg leading-snug">
+              {preview?.name}
+            </DialogTitle>
+            <DialogDescription className="text-left">{preview?.issuer}</DialogDescription>
+          </DialogHeader>
+          {preview?.file && (
+            <>
+              <div className="h-[65vh] w-full overflow-hidden rounded-xl border border-border bg-background">
+                <object data={preview.file} type="application/pdf" className="h-full w-full">
+                  <div className="grid h-full place-items-center p-6 text-center text-sm text-muted-foreground">
+                    Inline preview isn&apos;t supported here — open or download the PDF instead.
+                  </div>
+                </object>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <Button asChild variant="outline">
+                  <a href={preview.file} target="_blank" rel="noreferrer">
+                    <Eye /> Open in new tab
+                  </a>
+                </Button>
+                <Button asChild>
+                  <a href={preview.file} download>
+                    <Download /> Download Certificate
+                  </a>
+                </Button>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </>
   );
 }

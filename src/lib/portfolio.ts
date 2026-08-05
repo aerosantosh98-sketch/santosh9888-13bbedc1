@@ -223,14 +223,14 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "survey-project-kalwaran",
-    title: "Survey Project – Kalwaran",
+    slug: "survey-project-kaiwara",
+    title: "Survey Project – Kaiwara",
     category: "Surveying & GIS",
     year: "2024",
     summary:
       "Performed Total Station survey, GIS processing, contour mapping, and Digital Elevation Model generation.",
     description: [
-      "A detailed topographic survey of the Kalwaran site was carried out using a Total Station with control points established by GPS observation.",
+      "A detailed topographic survey of the Kaiwara site was carried out using a Total Station with control points established by GPS observation.",
       "Field data was processed in ArcGIS to produce contour maps, a Digital Elevation Model and slope/aspect derivatives supporting site planning decisions.",
       "Deliverables included a georeferenced base map, contour drawings and a terrain analysis note.",
     ],
@@ -265,51 +265,120 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "field-surveying-project",
-    title: "Field Surveying Project",
-    category: "Surveying & GIS",
+    slug: "estimation-project-wakefit-kaiwara",
+    title: "Estimation Project – Wakefit.co",
+    category: "Quantity Surveying & Estimation",
     year: "2024",
-    summary: "Conducted topographic surveys and infrastructure field measurements.",
+    summary:
+      "Detailed quantity take-off, rate analysis and cost estimation carried out for Wakefit.co on the Kaiwara project.",
     description: [
-      "Field measurement campaign covering road alignment, existing structures and utility positions for an infrastructure study.",
-      "Levelling, chainage marking and cross-section measurements were recorded and reduced into plotted longitudinal and cross-section drawings.",
-      "The exercise strengthened practical instrument handling, booking discipline and error checking.",
+      "Estimation work completed for Wakefit.co on their Kaiwara project, covering measurement of civil works from approved drawings and preparation of a consolidated cost estimate.",
+      "Quantities were taken off item-wise for excavation, RCC, masonry, plastering and finishing works, then priced through rate analysis using prevailing material, labour and machinery rates.",
+      "Deliverables included the quantity take-off sheets, a rate-analysis workbook and a summarised BOQ with abstract of cost for client review.",
     ],
-    tools: ["Auto Level", "Total Station", "Chain & Tape", "AutoCAD"],
+    tools: ["Quantity Take-Off", "Rate Analysis", "BOQ Preparation", "Microsoft Excel", "AutoCAD"],
     drawings: [
-      "Longitudinal section along alignment",
-      "Cross-sections at 20 m chainage",
-      "Site plan with existing features",
+      "Marked-up drawings used for measurement",
+      "Item-wise measurement sheets",
+      "Abstract of cost summary",
     ],
     calculations: [
-      { label: "Alignment length", value: "≈ 1.2 km" },
-      { label: "Cross-section interval", value: "20 m" },
-      { label: "Levelling check", value: "Rise & fall verified" },
+      { label: "Scope", value: "Civil works estimation – Kaiwara" },
+      { label: "Client", value: "Wakefit.co" },
+      { label: "Basis of rates", value: "Prevailing market + SR rates" },
+      { label: "Output", value: "BOQ with abstract of cost" },
     ],
     boq: [
-      { item: "Field survey crew", unit: "day", qty: "3", rate: "3,000", amount: "9,000" },
-      { item: "Drafting & plotting", unit: "LS", qty: "1", rate: "6,500", amount: "6,500" },
+      { item: "Earthwork in excavation", unit: "cum", qty: "310", rate: "260", amount: "80,600" },
+      { item: "PCC 1:4:8 bed", unit: "cum", qty: "26", rate: "5,400", amount: "1,40,400" },
+      { item: "RCC M25 in footings & columns", unit: "cum", qty: "48", rate: "6,200", amount: "2,97,600" },
+      { item: "Brick masonry 230 mm", unit: "cum", qty: "94", rate: "6,800", amount: "6,39,200" },
+      { item: "Internal & external plastering", unit: "sqm", qty: "1,240", rate: "290", amount: "3,59,600" },
     ],
     timeline: [
-      { phase: "Planning", detail: "Alignment definition and station marking" },
-      { phase: "Field work", detail: "Levelling and cross-section booking" },
-      { phase: "Reduction", detail: "Level book reduction and checks" },
-      { phase: "Drafting", detail: "L-section and cross-section drawings" },
+      { phase: "Drawing study", detail: "Review of architectural and structural drawings" },
+      { phase: "Quantity take-off", detail: "Item-wise measurement and measurement sheets" },
+      { phase: "Rate analysis", detail: "Material, labour and machinery rate build-up" },
+      { phase: "BOQ & abstract", detail: "Consolidated BOQ with abstract of cost" },
+      { phase: "Review", detail: "Cross-checking and client submission" },
     ],
     downloads: [
-      { label: "Field Book Summary", type: "PDF" },
-      { label: "L-Section Drawing", type: "DWG" },
+      { label: "Estimation Report", type: "PDF" },
+      { label: "BOQ & Rate Analysis", type: "XLSX" },
     ],
   },
 ];
 
-export const certifications = [
-  { name: "ArcGIS Fundamentals", issuer: "Esri Learning", category: "GIS & Remote Sensing" },
-  { name: "GIS Basics", issuer: "Online Certification", category: "GIS & Remote Sensing" },
-  { name: "3D Printing Technology", issuer: "NMIT", category: "Technology" },
-  { name: "Metro, Tunnel & Pile Engineering", issuer: "L&T EduTech", category: "Construction" },
-  { name: "Project Management", issuer: "Infosys", category: "Management" },
-  { name: "Project Risk Management & Mitigation", issuer: "Infosys", category: "Management" },
+/** Local resume PDF (served from /public). */
+export const resumeFile = "/documents/resume.pdf";
+
+export type Certification = {
+  name: string;
+  issuer: string;
+  category: string;
+  /** Local PDF path under /public. Leave undefined until the file is added. */
+  file?: string;
+};
+
+/**
+ * To add a future certificate: drop the PDF in
+ * public/documents/certificates/ and append an entry here with its path.
+ * View + Download actions are wired automatically.
+ */
+export const certifications: Certification[] = [
+  {
+    name: "Additive Manufacturing Designer and Industry 4.0",
+    issuer: "Nitte Meenakshi Institute of Technology (External Tutor)",
+    category: "Technology",
+    file: "/documents/certificates/additive-manufacturing-industry-4-0.pdf",
+  },
+  {
+    name: "AEC Project Review & Coordination – Navisworks",
+    issuer: "EDSCA",
+    category: "BIM & Digital Construction",
+    file: "/documents/certificates/navisworks-aec-project-review.pdf",
+  },
+  {
+    name: "Project Planning and Management – Primavera P6",
+    issuer: "EDSCA",
+    category: "Management",
+    file: "/documents/certificates/primavera-p6-project-planning.pdf",
+  },
+  {
+    name: "Project Time Management Training",
+    issuer: "Infosys",
+    category: "Management",
+    file: "/documents/certificates/project-time-management.pdf",
+  },
+  {
+    name: "MATLAB Onramp",
+    issuer: "MathWorks",
+    category: "Technology",
+    file: "/documents/certificates/matlab-onramp.pdf",
+  },
+  {
+    name: "Airport and Seaports Engineering",
+    issuer: "L&T EduTech",
+    category: "Construction",
+    file: "/documents/certificates/airport-and-seaports-engineering.pdf",
+  },
+  {
+    name: "BIM – Building Information Modeling",
+    issuer: "L&T EduTech",
+    category: "BIM & Digital Construction",
+    file: "/documents/certificates/bim-building-information-modeling.pdf",
+  },
+  {
+    name: "Project on Time Series Analysis: Future Climatic Change Scenarios",
+    issuer: "Infosys",
+    category: "Technology",
+    file: "/documents/certificates/time-series-analysis-climate.pdf",
+  },
+  {
+    name: "AutoCAD 3D",
+    issuer: "EDSCA",
+    category: "Technology",
+  },
 ];
 
 export const achievements = [
@@ -335,11 +404,25 @@ export const interests = [
 
 export const languages = ["English", "Hindi", "Nepali", "Maithili"];
 
-export const downloads = [
-  { label: "Resume / CV", desc: "Latest one-page engineering resume", type: "PDF", size: "320 KB" },
-  { label: "Certificates Bundle", desc: "All six certifications in one file", type: "PDF", size: "2.4 MB" },
+export const downloads: {
+  label: string;
+  desc: string;
+  type: string;
+  size: string;
+  href?: string;
+}[] = [
+  { label: "Resume / CV", desc: "Latest one-page engineering resume", type: "PDF", size: "320 KB", href: resumeFile },
+  ...certifications
+    .filter((c) => c.file)
+    .map((c) => ({
+      label: c.name,
+      desc: `Certificate — ${c.issuer}`,
+      type: "PDF",
+      size: "PDF",
+      href: c.file as string,
+    })),
   { label: "BOQ – Earthquake Resistant Building", desc: "Quantity take-off and rate analysis", type: "XLSX", size: "180 KB" },
   { label: "Estimation Workbook", desc: "Rate analysis templates and sample estimates", type: "XLSX", size: "240 KB" },
-  { label: "Survey Drawings – Kalwaran", desc: "Contour map and DEM outputs", type: "DWG", size: "1.1 MB" },
+  { label: "Survey Drawings – Kaiwara", desc: "Contour map and DEM outputs", type: "DWG", size: "1.1 MB" },
   { label: "Project Report – Piezoelectric Concrete", desc: "Full technical report", type: "PDF", size: "3.2 MB" },
 ];

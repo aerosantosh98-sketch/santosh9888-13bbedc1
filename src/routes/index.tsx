@@ -18,7 +18,7 @@ import {
 import portrait from "@/assets/profile-pic.jpg.asset.json";
 import { Section, SectionTitle } from "@/components/site/Page";
 import { Counter, Magnetic, Reveal } from "@/components/site/Motion";
-import { profile, projects, skillGroups } from "@/lib/portfolio";
+import { profile, projects, resumeFile, skillGroups } from "@/lib/portfolio";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -90,12 +90,13 @@ function Home() {
             <Reveal delay={0.28}>
               <div className="mt-10 flex flex-wrap items-center gap-3">
                 <Magnetic>
-                  <Link
-                    to="/downloads"
+                  <a
+                    href={resumeFile}
+                    download
                     className="inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-medium text-background transition-transform duration-300 hover:scale-[1.04]"
                   >
                     <Download className="size-4" /> Download Resume
-                  </Link>
+                  </a>
                 </Magnetic>
                 <Magnetic>
                   <Link

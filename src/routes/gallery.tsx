@@ -26,7 +26,7 @@ export const Route = createFileRoute("/gallery")({
 const tiles = [
   { title: "Structural framing model", caption: "ETABS analysis model", span: "lg:col-span-2 lg:row-span-2", img: blueprint },
   { title: "Site supervision", caption: "Lolang Construction, Kathmandu", span: "", img: portrait },
-  { title: "Contour mapping", caption: "Kalwaran survey, ArcGIS output", span: "", img: null },
+  { title: "Contour mapping", caption: "Kaiwara survey, ArcGIS output", span: "", img: null },
   { title: "Total Station setup", caption: "Field survey campaign", span: "lg:col-span-2", img: null },
   { title: "Reinforcement detailing", caption: "Ductile detailing to IS 13920", span: "", img: null },
   { title: "Piezoelectric block casting", caption: "Multi-layer concrete specimen", span: "", img: null },
