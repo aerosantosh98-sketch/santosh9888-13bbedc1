@@ -1,9 +1,17 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Award, Search, BadgeCheck } from "lucide-react";
+import { Award, Search, BadgeCheck, Eye, Download } from "lucide-react";
 import { PageHeader, Section } from "@/components/site/Page";
 import { Input } from "@/components/ui/input";
-import { certifications } from "@/lib/portfolio";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
+import { certifications, type Certification } from "@/lib/portfolio";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/certifications")({
