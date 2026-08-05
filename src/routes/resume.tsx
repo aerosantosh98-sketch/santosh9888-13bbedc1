@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Download, Printer, FileText } from "lucide-react";
+import { Download, Printer, FileText, Eye } from "lucide-react";
 import { PageHeader, Section } from "@/components/site/Page";
 import { Button } from "@/components/ui/button";
 import {
@@ -8,6 +8,7 @@ import {
   experience,
   profile,
   projects,
+  resumeFile,
   skillGroups,
 } from "@/lib/portfolio";
 
