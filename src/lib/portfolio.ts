@@ -303,13 +303,76 @@ export const projects: Project[] = [
   },
 ];
 
-export const certifications = [
-  { name: "ArcGIS Fundamentals", issuer: "Esri Learning", category: "GIS & Remote Sensing" },
-  { name: "GIS Basics", issuer: "Online Certification", category: "GIS & Remote Sensing" },
-  { name: "3D Printing Technology", issuer: "NMIT", category: "Technology" },
-  { name: "Metro, Tunnel & Pile Engineering", issuer: "L&T EduTech", category: "Construction" },
-  { name: "Project Management", issuer: "Infosys", category: "Management" },
-  { name: "Project Risk Management & Mitigation", issuer: "Infosys", category: "Management" },
+/** Local resume PDF (served from /public). */
+export const resumeFile = "/documents/resume.pdf";
+
+export type Certification = {
+  name: string;
+  issuer: string;
+  category: string;
+  /** Local PDF path under /public. Leave undefined until the file is added. */
+  file?: string;
+};
+
+/**
+ * To add a future certificate: drop the PDF in
+ * public/documents/certificates/ and append an entry here with its path.
+ * View + Download actions are wired automatically.
+ */
+export const certifications: Certification[] = [
+  {
+    name: "Additive Manufacturing Designer and Industry 4.0",
+    issuer: "Nitte Meenakshi Institute of Technology (External Tutor)",
+    category: "Technology",
+    file: "/documents/certificates/additive-manufacturing-industry-4-0.pdf",
+  },
+  {
+    name: "AEC Project Review & Coordination – Navisworks",
+    issuer: "EDSCA",
+    category: "BIM & Digital Construction",
+    file: "/documents/certificates/navisworks-aec-project-review.pdf",
+  },
+  {
+    name: "Project Planning and Management – Primavera P6",
+    issuer: "EDSCA",
+    category: "Management",
+    file: "/documents/certificates/primavera-p6-project-planning.pdf",
+  },
+  {
+    name: "Project Time Management Training",
+    issuer: "Infosys",
+    category: "Management",
+    file: "/documents/certificates/project-time-management.pdf",
+  },
+  {
+    name: "MATLAB Onramp",
+    issuer: "MathWorks",
+    category: "Technology",
+    file: "/documents/certificates/matlab-onramp.pdf",
+  },
+  {
+    name: "Airport and Seaports Engineering",
+    issuer: "L&T EduTech",
+    category: "Construction",
+    file: "/documents/certificates/airport-and-seaports-engineering.pdf",
+  },
+  {
+    name: "BIM – Building Information Modeling",
+    issuer: "L&T EduTech",
+    category: "BIM & Digital Construction",
+    file: "/documents/certificates/bim-building-information-modeling.pdf",
+  },
+  {
+    name: "Project on Time Series Analysis: Future Climatic Change Scenarios",
+    issuer: "Infosys",
+    category: "Technology",
+    file: "/documents/certificates/time-series-analysis-climate.pdf",
+  },
+  {
+    name: "AutoCAD 3D",
+    issuer: "EDSCA",
+    category: "Technology",
+  },
 ];
 
 export const achievements = [
