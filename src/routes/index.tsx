@@ -90,12 +90,13 @@ function Home() {
             <Reveal delay={0.28}>
               <div className="mt-10 flex flex-wrap items-center gap-3">
                 <Magnetic>
-                  <Link
-                    to="/downloads"
+                  <a
+                    href={resumeFile}
+                    download
                     className="inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-medium text-background transition-transform duration-300 hover:scale-[1.04]"
                   >
                     <Download className="size-4" /> Download Resume
-                  </Link>
+                  </a>
                 </Magnetic>
                 <Magnetic>
                   <Link
