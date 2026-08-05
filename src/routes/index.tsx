@@ -18,7 +18,7 @@ import {
 import portrait from "@/assets/profile-pic.jpg.asset.json";
 import { Section, SectionTitle } from "@/components/site/Page";
 import { Counter, Magnetic, Reveal } from "@/components/site/Motion";
-import { profile, projects, skillGroups } from "@/lib/portfolio";
+import { profile, projects, resumeFile, skillGroups } from "@/lib/portfolio";
 
 export const Route = createFileRoute("/")({
   head: () => ({
