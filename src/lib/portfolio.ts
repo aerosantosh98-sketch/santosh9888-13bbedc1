@@ -404,11 +404,25 @@ export const interests = [
 
 export const languages = ["English", "Hindi", "Nepali", "Maithili"];
 
-export const downloads = [
-  { label: "Resume / CV", desc: "Latest one-page engineering resume", type: "PDF", size: "320 KB" },
-  { label: "Certificates Bundle", desc: "All six certifications in one file", type: "PDF", size: "2.4 MB" },
+export const downloads: {
+  label: string;
+  desc: string;
+  type: string;
+  size: string;
+  href?: string;
+}[] = [
+  { label: "Resume / CV", desc: "Latest one-page engineering resume", type: "PDF", size: "320 KB", href: resumeFile },
+  ...certifications
+    .filter((c) => c.file)
+    .map((c) => ({
+      label: c.name,
+      desc: `Certificate — ${c.issuer}`,
+      type: "PDF",
+      size: "PDF",
+      href: c.file as string,
+    })),
   { label: "BOQ – Earthquake Resistant Building", desc: "Quantity take-off and rate analysis", type: "XLSX", size: "180 KB" },
   { label: "Estimation Workbook", desc: "Rate analysis templates and sample estimates", type: "XLSX", size: "240 KB" },
-  { label: "Survey Drawings – Kalwaran", desc: "Contour map and DEM outputs", type: "DWG", size: "1.1 MB" },
+  { label: "Survey Drawings – Kaiwara", desc: "Contour map and DEM outputs", type: "DWG", size: "1.1 MB" },
   { label: "Project Report – Piezoelectric Concrete", desc: "Full technical report", type: "PDF", size: "3.2 MB" },
 ];
