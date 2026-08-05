@@ -223,14 +223,14 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "survey-project-kalwaran",
-    title: "Survey Project – Kalwaran",
+    slug: "survey-project-kaiwara",
+    title: "Survey Project – Kaiwara",
     category: "Surveying & GIS",
     year: "2024",
     summary:
       "Performed Total Station survey, GIS processing, contour mapping, and Digital Elevation Model generation.",
     description: [
-      "A detailed topographic survey of the Kalwaran site was carried out using a Total Station with control points established by GPS observation.",
+      "A detailed topographic survey of the Kaiwara site was carried out using a Total Station with control points established by GPS observation.",
       "Field data was processed in ArcGIS to produce contour maps, a Digital Elevation Model and slope/aspect derivatives supporting site planning decisions.",
       "Deliverables included a georeferenced base map, contour drawings and a terrain analysis note.",
     ],
