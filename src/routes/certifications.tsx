@@ -36,6 +36,7 @@ export const Route = createFileRoute("/certifications")({
 function Certifications() {
   const [query, setQuery] = useState("");
   const [cat, setCat] = useState("All");
+  const [preview, setPreview] = useState<Certification | null>(null);
   const cats = ["All", ...Array.from(new Set(certifications.map((c) => c.category)))];
 
   const filtered = certifications.filter(
